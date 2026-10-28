@@ -1,18 +1,25 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#070b13">
-  <meta name="description" content="COSMOS — discover NASA's astronomy picture of the day, check tonight's stargazing weather, and keep a personal collection of discoveries.">
+  <meta name="description"
+    content="COSMOS — discover NASA's astronomy picture of the day, check tonight's stargazing weather, and keep a personal collection of discoveries.">
   <title>COSMOS — A place to look up</title>
-  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%23070a11'/%3E%3Ccircle cx='16' cy='16' r='6.5' fill='%23b6ebd7'/%3E%3Cellipse cx='16' cy='16' rx='13' ry='4.6' fill='none' stroke='%23b6ebd7' stroke-width='1.6' transform='rotate(-28 16 16)'/%3E%3C/svg%3E" type="image/svg+xml">
+  <link rel="icon"
+    href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%23070a11'/%3E%3Ccircle cx='16' cy='16' r='6.5' fill='%23b6ebd7'/%3E%3Cellipse cx='16' cy='16' rx='13' ry='4.6' fill='none' stroke='%23b6ebd7' stroke-width='1.6' transform='rotate(-28 16 16)'/%3E%3C/svg%3E"
+    type="image/svg+xml">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Instrument+Serif:ital@0;1&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link
+    href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Instrument+Serif:ital@0;1&family=Space+Grotesk:wght@400;500;600;700&display=swap"
+    rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
   <script src="js/app.js" defer></script>
 </head>
+
 <body>
   <a class="skip-link" href="#discovery">Skip to discoveries</a>
   <header class="site-header" id="top">
@@ -40,19 +47,23 @@
       <div class="hero-orbit" aria-hidden="true"></div>
       <div class="shell hero-inner">
         <div class="hero-copy">
-          <div class="eyebrow"><span class="eyebrow-line"></span> THE PERSONAL OBSERVATORY <span class="eyebrow-index">/ EST. EARTH</span></div>
+          <div class="eyebrow"><span class="eyebrow-line"></span> THE PERSONAL OBSERVATORY <span class="eyebrow-index">/
+              EST. EARTH</span></div>
           <h1 id="heroHeading">A place<br>to <em>look up.</em></h1>
-          <p class="hero-description">The universe doesn't need an invitation. Discover a new cosmic story each day, see what tonight holds, and collect what moves you.</p>
+          <p class="hero-description">The universe doesn't need an invitation. Discover a new cosmic story each day, see
+            what tonight holds, and collect what moves you.</p>
           <div class="hero-actions">
             <a href="#discovery" class="button button-light">Explore the universe <span aria-hidden="true">↗</span></a>
             <a href="#sky" class="button button-quiet">Check tonight's sky <span aria-hidden="true">↗</span></a>
           </div>
         </div>
-        <div class="hero-image-caption"><span class="vertical-line"></span><span>THE RINGED WORLD<br><strong>SATURN / ARTIST’S STUDY</strong><br>ORIGINAL VISUALIZATION</span></div>
+        <div class="hero-image-caption"><span class="vertical-line"></span><span>THE RINGED WORLD<br><strong>SATURN /
+              ARTIST’S STUDY</strong><br>ORIGINAL VISUALIZATION</span></div>
       </div>
       <div class="shell hero-bottom">
         <div class="hero-bottom-item"><span class="hero-bottom-no">01 /</span><span>Discover today's wonder</span></div>
-        <div class="hero-bottom-item"><span class="hero-bottom-no">02 /</span><span>Plan a night under the stars</span></div>
+        <div class="hero-bottom-item"><span class="hero-bottom-no">02 /</span><span>Plan a night under the stars</span>
+        </div>
         <div class="hero-bottom-item"><span class="hero-bottom-no">03 /</span><span>Keep what inspires you</span></div>
         <a href="#discovery" class="scroll-down" aria-label="Scroll down to discover">↓</a>
       </div>
@@ -60,39 +71,48 @@
 
     <section class="discover-section section-pad" id="discovery" aria-labelledby="discoverHeading">
       <div class="shell">
-        <div class="section-topline"><span>01 — DAILY DISCOVERY</span><span class="topline-right">A WINDOW INTO THE UNIVERSE</span></div>
+        <div class="section-topline"><span>01 — DAILY DISCOVERY</span><span class="topline-right">A WINDOW INTO THE
+            UNIVERSE</span></div>
         <div class="section-heading-row">
           <h2 id="discoverHeading">Something <em>extraordinary</em><br>every day.</h2>
-          <p>One remarkable view from NASA's Astronomy Picture of the Day. A different perspective, every single day.</p>
+          <p>One remarkable view from NASA's Astronomy Picture of the Day. A different perspective, every single day.
+          </p>
         </div>
         <div class="apod-layout">
           <div class="apod-visual" id="apodVisual">
-            <div class="apod-loading" id="apodLoading"><span class="loader-circle"></span><span>Connecting to the cosmos...</span></div>
+            <div class="apod-loading" id="apodLoading"><span class="loader-circle"></span><span>Connecting to the
+                cosmos...</span></div>
             <img id="apodImage" alt="" hidden>
             <div class="apod-photo-tint"></div>
             <span class="apod-corner-tag">NASA / APOD</span>
-            <a class="apod-media-link" id="apodMediaLink" href="https://science.nasa.gov/" target="_blank" rel="noopener noreferrer" hidden>Explore on NASA <span aria-hidden="true">↗</span></a>
+            <a class="apod-media-link" id="apodMediaLink" href="https://science.nasa.gov/" target="_blank"
+              rel="noopener noreferrer" hidden>Explore on NASA <span aria-hidden="true">↗</span></a>
           </div>
           <div class="apod-story">
-            <div class="story-top"><span class="kicker">THE DAILY FRAME</span><span class="story-serial">APOD <span id="apodSerial">—</span></span></div>
+            <div class="story-top"><span class="kicker">THE DAILY FRAME</span><span class="story-serial">APOD <span
+                  id="apodSerial">—</span></span></div>
             <div class="story-body">
               <span class="apod-date-display" id="apodDateLabel">Loading today's story...</span>
               <h3 id="apodTitle">A new view of the universe</h3>
               <p class="apod-credit" id="apodCredit">From the NASA archive</p>
               <p class="apod-description" id="apodDescription">Your daily dose of cosmic perspective is on its way.</p>
-              <button class="text-action" id="descriptionToggle" type="button" hidden>Read full story <span aria-hidden="true">↗</span></button>
+              <button class="text-action" id="descriptionToggle" type="button" hidden>Read full story <span
+                  aria-hidden="true">↗</span></button>
               <p class="status-error" id="apodError" role="alert" hidden></p>
             </div>
             <div class="story-actions">
               <div class="archive-label">TRAVEL THROUGH THE ARCHIVE</div>
               <div class="archive-controls">
                 <button class="square-button" id="prevDay" type="button" aria-label="Previous date">←</button>
-                <label class="date-label"><span class="sr-only">Select astronomy picture date</span><input id="apodDate" type="date" min="1995-06-16"></label>
+                <label class="date-label"><span class="sr-only">Select astronomy picture date</span><input id="apodDate"
+                    type="date" min="1995-06-16"></label>
                 <button class="square-button" id="nextDay" type="button" aria-label="Next date">→</button>
               </div>
               <div class="story-actions-bottom">
-                <button class="save-button" id="saveApod" type="button" disabled><span id="saveIcon" aria-hidden="true">♡</span><span id="saveLabel">Save discovery</span></button>
-                <a class="source-link" id="apodSource" href="https://science.nasa.gov/" target="_blank" rel="noopener noreferrer">NASA source ↗</a>
+                <button class="save-button" id="saveApod" type="button" disabled><span id="saveIcon"
+                    aria-hidden="true">♡</span><span id="saveLabel">Save discovery</span></button>
+                <a class="source-link" id="apodSource" href="https://science.nasa.gov/" target="_blank"
+                  rel="noopener noreferrer">NASA source ↗</a>
               </div>
               <div class="helper-status" id="apodStatus" role="status" aria-live="polite"></div>
             </div>
@@ -104,35 +124,50 @@
     <section class="sky-section section-pad" id="sky" aria-labelledby="skyHeading">
       <div class="sky-glow" aria-hidden="true"></div>
       <div class="shell">
-        <div class="section-topline"><span>02 — FIELD NOTES</span><span class="topline-right">YOUR WINDOW TO THE NIGHT</span></div>
+        <div class="section-topline"><span>02 — FIELD NOTES</span><span class="topline-right">YOUR WINDOW TO THE
+            NIGHT</span></div>
         <div class="sky-layout">
           <div class="sky-intro">
             <h2 id="skyHeading">Will the stars<br><em>come out tonight?</em></h2>
-            <p>Good nights are worth finding. Check the local forecast and get a simple, weather-based guide to your next night under the stars.</p>
+            <p>Good nights are worth finding. Check the local forecast and get a simple, weather-based guide to your
+              next night under the stars.</p>
             <div class="sky-controls">
-              <button type="button" class="button button-light" id="locateButton"><span class="locate-icon" aria-hidden="true">◎</span> Use my location</button>
+              <button type="button" class="button button-light" id="locateButton"><span class="locate-icon"
+                  aria-hidden="true">◎</span> Use my location</button>
               <div class="divider-or">or enter a city</div>
               <form id="cityForm" class="city-form" autocomplete="off">
                 <label class="sr-only" for="cityInput">Search for a city</label>
-                <input id="cityInput" name="city" type="search" placeholder="e.g. St. Louis, Tokyo" required maxlength="100">
+                <input id="cityInput" name="city" type="search" placeholder="e.g. St. Louis, Tokyo" required
+                  maxlength="100">
                 <button type="submit" aria-label="Search city's sky">↗</button>
               </form>
-              <p class="sky-feedback" id="skyFeedback" role="status" aria-live="polite">Choose your location to reveal tonight's forecast.</p>
+              <p class="sky-feedback" id="skyFeedback" role="status" aria-live="polite">Choose your location to reveal
+                tonight's forecast.</p>
             </div>
           </div>
           <div class="forecast" id="forecast" aria-live="polite">
-            <div class="forecast-head"><span>OBSERVATION REPORT</span><span class="live-indicator"><i></i> WEATHER-BASED</span></div>
+            <div class="forecast-head"><span>OBSERVATION REPORT</span><span class="live-indicator"><i></i>
+                WEATHER-BASED</span></div>
             <div class="forecast-place" id="forecastPlace">Your corner of the Earth</div>
             <div class="forecast-period" id="forecastPeriod">The sky is waiting for you.</div>
-            <div class="verdict-wrap"><span class="verdict-eyebrow">STARGAZING OUTLOOK</span><strong class="verdict" id="forecastVerdict">—</strong><p id="forecastReason">Check a location for a forecast.</p></div>
+            <div class="verdict-wrap"><span class="verdict-eyebrow">STARGAZING OUTLOOK</span><strong class="verdict"
+                id="forecastVerdict">—</strong>
+              <p id="forecastReason">Check a location for a forecast.</p>
+            </div>
             <div class="forecast-measures">
-              <div><span class="measure-label">AVG. CLOUD COVER</span><strong id="cloudStat">—</strong><span class="measure-suffix">of the sky</span></div>
-              <div><span class="measure-label">TEMPERATURE</span><strong id="tempStat">—</strong><span class="measure-suffix">during viewing hours</span></div>
-              <div><span class="measure-label">CONDITIONS</span><strong class="condition-value" id="conditionStat">—</strong><span class="measure-suffix">forecast</span></div>
+              <div><span class="measure-label">AVG. CLOUD COVER</span><strong id="cloudStat">—</strong><span
+                  class="measure-suffix">of the sky</span></div>
+              <div><span class="measure-label">TEMPERATURE</span><strong id="tempStat">—</strong><span
+                  class="measure-suffix">during viewing hours</span></div>
+              <div><span class="measure-label">CONDITIONS</span><strong class="condition-value"
+                  id="conditionStat">—</strong><span class="measure-suffix">forecast</span></div>
             </div>
             <div class="hourly-heading">CLOUD COVER BY HOUR <span id="hourlyRange">20:00–23:00</span></div>
-            <div class="hourly-chart" id="hourlyChart"><div class="hourly-empty">Select a location to view the sky.</div></div>
-            <div class="forecast-footnote">Conditions from Open-Meteo. Cloud cover and precipitation are only part of what determines real stargazing visibility.</div>
+            <div class="hourly-chart" id="hourlyChart">
+              <div class="hourly-empty">Select a location to view the sky.</div>
+            </div>
+            <div class="forecast-footnote">Conditions from Open-Meteo. Cloud cover and precipitation are only part of
+              what determines real stargazing visibility.</div>
           </div>
         </div>
       </div>
@@ -140,20 +175,33 @@
 
     <section class="collection-section section-pad" id="collection" aria-labelledby="collectionHeading">
       <div class="shell">
-        <div class="section-topline"><span>03 — PERSONAL ARCHIVE</span><span class="topline-right">THE STORIES YOU KEEP</span></div>
+        <div class="section-topline"><span>03 — PERSONAL ARCHIVE</span><span class="topline-right">THE STORIES YOU
+            KEEP</span></div>
         <div class="section-heading-row collection-heading-row">
           <h2 id="collectionHeading">A universe of<br><em>your own.</em></h2>
-          <div><p>Some views stay with us. Save the discoveries you love and revisit them whenever you want.</p><span class="collection-count"><span id="collectionCount">00</span> DISCOVERIES SAVED</span></div>
+          <div>
+            <p>Some views stay with us. Save the discoveries you love and revisit them whenever you want.</p><span
+              class="collection-count"><span id="collectionCount">00</span> DISCOVERIES SAVED</span>
+          </div>
         </div>
         <div id="collectionGrid" class="collection-grid" aria-live="polite"></div>
-        <div class="collection-actions"><button class="text-action" id="clearCollection" type="button" hidden>Clear collection <span aria-hidden="true">×</span></button></div>
+        <div class="collection-actions"><button class="text-action" id="clearCollection" type="button" hidden>Clear
+            collection <span aria-hidden="true">×</span></button></div>
       </div>
     </section>
   </main>
 
   <footer class="site-footer">
-    <div class="shell footer-top"><div><a class="footer-brand" href="#top">COSMOS<span>.</span></a><p>There is always something more to discover.</p></div><a class="back-top" href="#top">Back to the beginning ↑</a></div>
-    <div class="shell footer-bottom"><span>AN INDEPENDENT STUDENT PROJECT · CSE 2004</span><span>Hero artwork: original visualization · Data: <a href="https://science.nasa.gov/" target="_blank" rel="noopener noreferrer">NASA APOD</a> + <a href="https://open-meteo.com/" target="_blank" rel="noopener noreferrer">Open-Meteo</a></span><span>MADE FOR THE CURIOUS.</span></div>
+    <div class="shell footer-top">
+      <div><a class="footer-brand" href="#top">COSMOS<span>.</span></a>
+        <p>There is always something more to discover.</p>
+      </div><a class="back-top" href="#top">Back to the beginning ↑</a>
+    </div>
+    <div class="shell footer-bottom"><span>AN INDEPENDENT STUDENT PROJECT · CSE 2004</span><span>Hero artwork: original
+        visualization · Data: <a href="https://science.nasa.gov/" target="_blank" rel="noopener noreferrer">NASA
+          APOD</a> + <a href="https://open-meteo.com/" target="_blank"
+          rel="noopener noreferrer">Open-Meteo</a></span><span>MADE FOR THE CURIOUS.</span></div>
   </footer>
 </body>
+
 </html>

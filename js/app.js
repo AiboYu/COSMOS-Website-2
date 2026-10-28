@@ -201,7 +201,7 @@
       $('#apodLoading').hidden = true;
       $('#apodError').hidden = false;
       $('#apodError').textContent = `${error.message} Try another date or reload the page.`;
-      $('#apodDate').max = state.latestDate || new Date().toISOString().slice(0,10);
+      $('#apodDate').max = state.latestDate || new Date().toISOString().slice(0, 10);
       $('#prevDay').disabled = !date || date <= FIRST_APOD;
       $('#nextDay').disabled = !date || !state.latestDate || date >= state.latestDate;
     }
@@ -231,18 +231,18 @@
     }
     const now = payload.current?.time || hourly.time[0];
     let day = now.slice(0, 10);
-    const hour = Number(now.slice(11,13));
+    const hour = Number(now.slice(11, 13));
     // After the last viewing hour, show tomorrow night's forecast instead.
     if (hour >= 23) day = dateOffset(day, 1);
-    let hours = hourly.time.map((time,index) => ({time,index})).filter(entry => entry.time.startsWith(day) && Number(entry.time.slice(11,13)) >= Math.max(20, day === now.slice(0,10) ? hour : 20) && Number(entry.time.slice(11,13)) <= 23);
-    if (!hours.length) hours = hourly.time.map((time,index) => ({time,index})).filter(entry => entry.time.startsWith(day) && Number(entry.time.slice(11,13)) >= 20 && Number(entry.time.slice(11,13)) <= 23);
+    let hours = hourly.time.map((time, index) => ({ time, index })).filter(entry => entry.time.startsWith(day) && Number(entry.time.slice(11, 13)) >= Math.max(20, day === now.slice(0, 10) ? hour : 20) && Number(entry.time.slice(11, 13)) <= 23);
+    if (!hours.length) hours = hourly.time.map((time, index) => ({ time, index })).filter(entry => entry.time.startsWith(day) && Number(entry.time.slice(11, 13)) >= 20 && Number(entry.time.slice(11, 13)) <= 23);
     if (!hours.length) throw new Error('The evening forecast is unavailable for this location.');
     const samples = hours.map(entry => ({
-      label: entry.time.slice(11,16),
+      label: entry.time.slice(11, 16),
       cloud: Number(hourly.cloud_cover[entry.index]),
       temp: Number(hourly.temperature_2m[entry.index]),
       code: Number(hourly.weather_code[entry.index]),
-    })).filter(item => [item.cloud,item.temp,item.code].every(Number.isFinite));
+    })).filter(item => [item.cloud, item.temp, item.code].every(Number.isFinite));
     if (!samples.length) throw new Error('The hourly forecast is missing weather readings.');
     const cloud = Math.round(average(samples.map(item => item.cloud)));
     const temp = Math.round(average(samples.map(item => item.temp)));
@@ -251,8 +251,8 @@
     const verdict = bad ? 'Poor' : cloud <= 15 ? 'Excellent' : cloud <= 45 ? 'Good' : 'Poor';
     const reason = bad ? `The forecast includes ${condition(worstCode).toLowerCase()}. Consider waiting for a clearer night.`
       : cloud <= 15 ? 'Very little cloud is expected — a promising evening to head outside.'
-      : cloud <= 45 ? 'Some clouds are expected, but there may be clear patches worth catching.'
-      : 'Cloud cover may obscure much of the night sky. Another evening may be better.';
+        : cloud <= 45 ? 'Some clouds are expected, but there may be clear patches worth catching.'
+          : 'Cloud cover may obscure much of the night sky. Another evening may be better.';
     setText('#forecastPlace', place);
     setText('#forecastPeriod', `${shortDate(day)} · ${samples[0].label}–${samples.at(-1).label} local time`);
     setText('#forecastVerdict', verdict);
@@ -267,7 +267,7 @@
       const cell = document.createElement('div'); cell.className = 'hourly-cell';
       const time = document.createElement('strong'); time.textContent = label;
       const track = document.createElement('div'); track.className = 'hourly-track';
-      const bar = document.createElement('i'); bar.style.width = `${Math.max(0,Math.min(100,cover))}%`; track.append(bar);
+      const bar = document.createElement('i'); bar.style.width = `${Math.max(0, Math.min(100, cover))}%`; track.append(bar);
       const text = document.createElement('span'); text.textContent = `${Math.round(cover)}% clouds`;
       cell.append(time, track, text); chart.append(cell);
     });
@@ -334,9 +334,9 @@
 
   function init() {
     $('#saveApod').addEventListener('click', toggleSaved);
-    $('#prevDay').addEventListener('click', () => { if (state.apod || state.viewDate) loadApod(dateOffset(state.apod?.date || state.viewDate,-1)); });
-    $('#nextDay').addEventListener('click', () => { if (state.apod || state.viewDate) loadApod(dateOffset(state.apod?.date || state.viewDate,1)); });
-    $('#apodDate').max = new Date().toISOString().slice(0,10);
+    $('#prevDay').addEventListener('click', () => { if (state.apod || state.viewDate) loadApod(dateOffset(state.apod?.date || state.viewDate, -1)); });
+    $('#nextDay').addEventListener('click', () => { if (state.apod || state.viewDate) loadApod(dateOffset(state.apod?.date || state.viewDate, 1)); });
+    $('#apodDate').max = new Date().toISOString().slice(0, 10);
     $('#apodDate').addEventListener('change', event => {
       const date = event.target.value;
       if (date >= FIRST_APOD && date <= ($('#apodDate').max)) loadApod(date);
