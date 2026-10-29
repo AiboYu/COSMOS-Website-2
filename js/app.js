@@ -156,6 +156,7 @@
     const source = safeUrl(item.permalink) || (item.url?.includes('science.nasa.gov') ? safeUrl(item.url) : '') || 'https://science.nasa.gov/';
     const videoLink = $('#apodMediaLink');
     videoLink.hidden = item.media_type === 'image';
+    $('#apodVideoFallback').hidden = item.media_type === 'image';
     videoLink.href = source;
     videoLink.firstChild.textContent = item.media_type === 'image' ? 'Explore on NASA ' : 'Watch / read on NASA ';
     $('#apodSource').href = source;
@@ -188,6 +189,7 @@
     $('#apodLoading').hidden = false;
     $('#apodImage').hidden = true;
     $('#apodMediaLink').hidden = true;
+    $('#apodVideoFallback').hidden = true;
     $('#apodStatus').textContent = '';
     const url = date ? `${APOD_BASE}/${apodId(date)}` : APOD_BASE;
     try {
@@ -205,6 +207,15 @@
       $('#prevDay').disabled = !date || date <= FIRST_APOD;
       $('#nextDay').disabled = !date || !state.latestDate || date >= state.latestDate;
     }
+  }
+
+  function loadRandomApod() {
+    const latest = state.latestDate || new Date().toISOString().slice(0, 10);
+    const start = Date.parse(`${FIRST_APOD}T12:00:00Z`);
+    const end = Date.parse(`${latest}T12:00:00Z`);
+    if (!Number.isFinite(start) || !Number.isFinite(end) || end <= start) return;
+    const spanDays = Math.floor((end - start) / 86400000);
+    loadApod(dateOffset(FIRST_APOD, Math.floor(Math.random() * (spanDays + 1))));
   }
 
   /* Tonight's sky — estimates based on local 8–11 PM hourly weather. */
@@ -336,6 +347,7 @@
     $('#saveApod').addEventListener('click', toggleSaved);
     $('#prevDay').addEventListener('click', () => { if (state.apod || state.viewDate) loadApod(dateOffset(state.apod?.date || state.viewDate, -1)); });
     $('#nextDay').addEventListener('click', () => { if (state.apod || state.viewDate) loadApod(dateOffset(state.apod?.date || state.viewDate, 1)); });
+    $('#randomDay').addEventListener('click', loadRandomApod);
     $('#apodDate').max = new Date().toISOString().slice(0, 10);
     $('#apodDate').addEventListener('change', event => {
       const date = event.target.value;

@@ -559,6 +559,37 @@ h2 em {
   margin-left: 25px
 }
 
+.apod-video-fallback {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  text-align: center;
+  padding: 32px
+}
+
+.video-fallback-icon {
+  font: 400 52px var(--serif);
+  color: var(--accent)
+}
+
+.apod-video-fallback strong {
+  font: 500 20px var(--tech);
+  letter-spacing: -.02em;
+  color: #e6eeea
+}
+
+.apod-video-fallback p {
+  color: #9fb0bb;
+  font-size: 13px;
+  line-height: 1.6;
+  margin: 0;
+  max-width: 260px
+}
+
 .apod-loading {
   position: absolute;
   inset: 0;
@@ -675,7 +706,30 @@ h2 em {
 
 .archive-label {
   color: #8898ad;
-  margin-bottom: 13px
+  margin-bottom: 13px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px
+}
+
+.random-button {
+  background: none;
+  border: 1px solid #46505c;
+  color: var(--accent);
+  font: 700 11px var(--tech);
+  letter-spacing: .06em;
+  padding: 8px 12px;
+  border-radius: 2px;
+  transition: background .2s
+}
+
+.random-button span {
+  margin-left: 6px
+}
+
+.random-button:hover {
+  background: #263a40
 }
 
 .archive-controls {

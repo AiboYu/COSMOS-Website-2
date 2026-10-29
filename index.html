@@ -83,6 +83,11 @@
             <div class="apod-loading" id="apodLoading"><span class="loader-circle"></span><span>Connecting to the
                 cosmos...</span></div>
             <img id="apodImage" alt="" hidden>
+            <div class="apod-video-fallback" id="apodVideoFallback" hidden>
+              <span class="video-fallback-icon" aria-hidden="true">▶</span>
+              <strong>Today's picture is a video</strong>
+              <p>Watch it on NASA using the link below.</p>
+            </div>
             <div class="apod-photo-tint"></div>
             <span class="apod-corner-tag">NASA / APOD</span>
             <a class="apod-media-link" id="apodMediaLink" href="https://science.nasa.gov/" target="_blank"
@@ -101,7 +106,8 @@
               <p class="status-error" id="apodError" role="alert" hidden></p>
             </div>
             <div class="story-actions">
-              <div class="archive-label">TRAVEL THROUGH THE ARCHIVE</div>
+              <div class="archive-label"><span>TRAVEL THROUGH THE ARCHIVE</span><button class="random-button"
+                  id="randomDay" type="button">Feeling lucky <span aria-hidden="true">✶</span></button></div>
               <div class="archive-controls">
                 <button class="square-button" id="prevDay" type="button" aria-label="Previous date">←</button>
                 <label class="date-label"><span class="sr-only">Select astronomy picture date</span><input id="apodDate"
